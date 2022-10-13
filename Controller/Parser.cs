@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace FillingTable.Controller
 {
+    public enum Type
+    {
+        STRING,
+        INT,
+        FLOAT,
+        DATE
+    }
     internal class Parser
     {
 
         private int count = 0;
+        private List<string> types = new List<string>();
         public string GetQuery(string[] basesSql, int queryCount)
         {
             count = 0;
@@ -30,6 +38,7 @@ namespace FillingTable.Controller
             {
                 if (item.ToLower().Contains("not null"))
                 {
+                    types.Add(item.Split(' ')[1]);
                     value += GetName(item, false);
                     count += 1;
                 }
@@ -72,6 +81,19 @@ namespace FillingTable.Controller
 
             string name = str.Split('[')[1];
             return "[" + name.Substring(0, name.IndexOf(" "));
+        }
+
+        private Type SelectType(string str)
+        {
+            if (str.ToLower().Contains("nvarchar") || str.ToLower().Contains("varchar"))
+                return Type.STRING;
+            if (str.ToLower().Contains("int"))
+                return Type.INT;
+            if (str.ToLower().Contains("float") || str.ToLower().Contains("money"))
+                return Type.FLOAT;
+            if(str.ToLower().Contains("datetime") || str.ToLower().Contains("date"))
+                return Type.DATE;
+            return Type.STRING;
         }
     }
 }
