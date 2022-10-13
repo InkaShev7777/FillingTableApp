@@ -39,7 +39,6 @@ namespace FillingTable
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            // получаем выбранный файл
             string filename = saveFileDialog1.FileName;
             // сохраняем текст в файл
             System.IO.File.WriteAllText(filename, textBox1.Text);

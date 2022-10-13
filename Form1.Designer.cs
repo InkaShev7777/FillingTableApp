@@ -44,7 +44,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 60);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Download";
+            this.button1.Text = "Open file";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -89,7 +89,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(190, 55);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Close";
+            this.button3.Text = "Close App";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -106,7 +106,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Filling Table App";
             this.ResumeLayout(false);
             this.PerformLayout();
 
