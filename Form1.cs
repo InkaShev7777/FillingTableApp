@@ -28,6 +28,8 @@ namespace FillingTable
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = openFileDialog1.FileName;
+            if (!filename.Contains(".sql"))
+                return;
             // логика обработки и добавления в текст-бокс
             string fileText = System.IO.File.ReadAllText(filename);
             textBox1.Text = fileText;
