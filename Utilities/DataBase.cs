@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace FillingTable.Controller
+namespace FillingTable.Utilities
 {
     internal class DataBase
     {

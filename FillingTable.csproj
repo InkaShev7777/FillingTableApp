@@ -47,14 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\DataBase.cs" />
-    <Compile Include="Controller\Parser.cs" />
+    <Compile Include="Controller\FieldController.cs" />
+    <Compile Include="Utilities\DataBase.cs" />
+    <Compile Include="Utilities\FieldFactory.cs" />
+    <Compile Include="Utilities\FieldType.cs" />
+    <Compile Include="Utilities\Parser.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Fields\DateField.cs" />
+    <Compile Include="Model\Fields\IField.cs" />
+    <Compile Include="Model\Fields\FloatField.cs" />
+    <Compile Include="Model\Fields\IntField.cs" />
+    <Compile Include="Model\Fields\StringField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -83,5 +91,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
