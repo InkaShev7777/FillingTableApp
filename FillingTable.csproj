@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=34.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>packages\Bogus.34.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FieldController.cs" />
-    <Compile Include="Utilities\DataBase.cs" />
     <Compile Include="Utilities\FieldFactory.cs" />
     <Compile Include="Utilities\FieldType.cs" />
     <Compile Include="Utilities\Parser.cs" />
@@ -59,7 +61,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Fields\DateField.cs" />
-    <Compile Include="Model\Fields\IField.cs" />
+    <Compile Include="Model\Fields\Field.cs" />
     <Compile Include="Model\Fields\FloatField.cs" />
     <Compile Include="Model\Fields\IntField.cs" />
     <Compile Include="Model\Fields\StringField.cs" />
@@ -78,6 +80,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

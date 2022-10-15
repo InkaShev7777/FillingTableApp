@@ -9,13 +9,17 @@ namespace FillingTable
         private FieldController _fieldController;
         public Form1()
         {
-            _fieldController = new FieldController();
             InitializeComponent();
+            _fieldController = new FieldController();
+            _fieldController.ShowingData += ShowData;
         }
+
+        private void ShowData(string data) => resultTB.Text = data;
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = String.Empty;
+            resultTB.Text = String.Empty;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -24,7 +28,9 @@ namespace FillingTable
                 return;
             // логика обработки и добавления в текст-бокс
             string fileText = System.IO.File.ReadAllText(filename);
+            fileTB.Text = fileText;
             _fieldController.SetSqlData(fileText);
+            _fieldController.SetQuertCount(Convert.ToInt32(countTB.Text));
             MessageBox.Show("Файл открыт");
         }
 
@@ -33,15 +39,21 @@ namespace FillingTable
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            string filename = saveFileDialog1.FileName;
+            string filename = saveFileDialog1.FileName + ".sql";
             // сохраняем текст в файл
-            System.IO.File.WriteAllText(filename, textBox1.Text);
+            System.IO.File.WriteAllText(filename, resultTB.Text);
             MessageBox.Show("Файл сохранен");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            _fieldController.ShowingData -= ShowData;
             this.Close();
+        }
+
+        private void countTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

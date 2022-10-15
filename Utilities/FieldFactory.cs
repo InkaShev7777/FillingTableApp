@@ -6,14 +6,14 @@ namespace FillingTable.Utilities
     public static class FieldFactory
     {
 
-        public static IField CreateField(Type type, string collumData, int maxLenght)
+        public static Field CreateField(Type type, string collumData, int maxLenght)
         {
             switch (type)
             {
                 case Type.STRING:
                     return new StringField(collumData, maxLenght);
                 case Type.INT:
-                    return new IntField(collumData);
+                    return new FloatField(collumData);
                 case Type.FLOAT:
                     return new FloatField(collumData);
                 case Type.DATE:
