@@ -120,16 +120,18 @@ namespace FillingTable.Controller
                     _allFields[k].SetValue($"'{_faker.Name.LastName()}'");
                 else if (_allFields[k].Name.ToLower().Equals("[fullname]"))
                     _allFields[k].SetValue($"'{_faker.Name.FullName()}'");
-                else if (_allFields[k].Name.ToLower().Equals("birthday"))
+                else if (_allFields[k].Name.ToLower().Equals("[birthday]"))
                     _allFields[k].SetValue($"'{_faker.Date.Past(80).ToString("yyyy-MM-dd")}'");
-                else if (_allFields[k].Name.ToLower().Equals("city"))
+                else if (_allFields[k].Name.ToLower().Equals("[city]"))
                     _allFields[k].SetValue($"'{_faker.Address.City()}'");
-                else if (_allFields[k].Name.ToLower().Equals("country"))
+                else if (_allFields[k].Name.ToLower().Equals("[country]"))
                     _allFields[k].SetValue($"'{_faker.Address.Country()}'");
-                else if (_allFields[k].Name.ToLower().Equals("street"))
+                else if (_allFields[k].Name.ToLower().Equals("[street]"))
                     _allFields[k].SetValue($"'{_faker.Address.StreetAddress()}'");
-                else if (_allFields[k].Name.ToLower().Equals("phonenumber"))
+                else if (_allFields[k].Name.ToLower().Equals("[phonenumber]"))
                     _allFields[k].SetValue($"'{_faker.Phone.PhoneNumber()}'");
+                else if (_allFields[k].Name.ToLower().Equals("[age]"))
+                    _allFields[k].SetValue($"'{_faker.Random.Number(100)}'");
                 else
                 {
                     if (_allFields[k].Type.Equals(Type.INT))
